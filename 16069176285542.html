@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  这个呢，也试一下 - kkkakkk
+  Stack - kkkakkk
   
   </title>
   
@@ -96,7 +96,7 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>这个呢，也试一下</h1>
+          <h1>Stack</h1>
      
         <div class="read-more clearfix">
           <span class="date">2020/12/02</span>
@@ -114,7 +114,34 @@
       </div><!-- article -->
 
       <div class="article-content">
-      
+      <ol>
+<li>stack 模板类需要两个模板参数，一个是元素类型，一个容器类型，但只有元素类型是必要的，在不指定容器类型时，默认的容器类型为deque（双端队列）。</li>
+<li><p>定义stack 对象的示例代码如下：</p>
+<pre><code class="language-cpp">stack s1;
+stack s2;
+</code></pre></li>
+<li><p>stack 的基本操作有：<br/>
+入栈，如例：<code>s.push(x);</code><br/>
+出栈，如例：<code>s.pop();</code>注意，出栈操作只是删除栈顶元素，并不返回该元素。<br/>
+访问栈顶，如例：<code>s.top()</code><br/>
+判断栈空，如例：<code>s.empty()</code>，当栈空时，返回true。<br/>
+访问栈中的元素个数，如例：<code>s.size()</code>。</p>
+<pre><code class="language-cpp">stack&lt;int&gt; a;
+//入栈操作<br/>
+a.push(1);<br/>
+a.push(2);<br/>
+a.push(3);<br/>
+//取栈顶元素输出<br/>
+cout &lt;&lt; a.top() &lt;&lt; endl;<br/>
+//删除栈顶元素<br/>
+a.pop();<br/>
+//再次取栈顶元素<br/>
+cout &lt;&lt; a.top() &lt;&lt; endl;<br/>
+//判断栈是否为空<br/>
+if(!a.empty()) cout &lt;&lt; &quot;栈不为空&quot; &lt;&lt; endl;
+</code></pre></li>
+</ol>
+
 
     
 
@@ -129,8 +156,8 @@
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="16069133621284.html" 
-          title="Next Post: have a try">have a try &raquo;</a>
+          <a  href="16069171425177.html" 
+          title="Next Post: Vector">Vector &raquo;</a>
       
       </p>
         </div>
@@ -199,13 +226,13 @@
 	      
 		      
 			      <li class="post">
-			        <a href="16069140245534.html">这个呢，也试一下</a>
+			        <a href="16069176285542.html">Stack</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="16069133621284.html">have a try</a>
+			        <a href="16069171425177.html">Vector</a>
 			      </li>
 		     
 		   
@@ -245,6 +272,8 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
 
 
 
+
+<script src="asset/prism.js"></script>
 
 
 <style type="text/css">

@@ -96,14 +96,41 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
-                <a class="clearlink" href="16069140245534.html">
+                <a class="clearlink" href="16069176285542.html">
                 
-                  <h1>这个呢，也试一下</h1>
+                  <h1>Stack</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	
+                        	<ol>
+<li>stack 模板类需要两个模板参数，一个是元素类型，一个容器类型，但只有元素类型是必要的，在不指定容器类型时，默认的容器类型为deque（双端队列）。</li>
+<li><p>定义stack 对象的示例代码如下：</p>
+<pre><code class="language-cpp">stack s1;
+stack s2;
+</code></pre></li>
+<li><p>stack 的基本操作有：<br/>
+入栈，如例：<code>s.push(x);</code><br/>
+出栈，如例：<code>s.pop();</code>注意，出栈操作只是删除栈顶元素，并不返回该元素。<br/>
+访问栈顶，如例：<code>s.top()</code><br/>
+判断栈空，如例：<code>s.empty()</code>，当栈空时，返回true。<br/>
+访问栈中的元素个数，如例：<code>s.size()</code>。</p>
+<pre><code class="language-cpp">stack&lt;int&gt; a;
+//入栈操作<br/>
+a.push(1);<br/>
+a.push(2);<br/>
+a.push(3);<br/>
+//取栈顶元素输出<br/>
+cout &lt;&lt; a.top() &lt;&lt; endl;<br/>
+//删除栈顶元素<br/>
+a.pop();<br/>
+//再次取栈顶元素<br/>
+cout &lt;&lt; a.top() &lt;&lt; endl;<br/>
+//判断栈是否为空<br/>
+if(!a.empty()) cout &lt;&lt; &quot;栈不为空&quot; &lt;&lt; endl;
+</code></pre></li>
+</ol>
+
                         
                       </div>
                   </div>
@@ -128,14 +155,103 @@
               </div><!-- article -->
         
 			<div class="article">
-                <a class="clearlink" href="16069133621284.html">
+                <a class="clearlink" href="16069171425177.html">
                 
-                  <h1>have a try</h1>
+                  <h1>Vector</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<h2 id="toc_0">it is a beginning.</h2>
+                        	<p>vector类似于平时使用的数组类型，只不过，封装了很多常用的函数，并且长度是可变的。</p>
+
+<pre><code class="language-cpp">vector&lt;int&gt; a;
+
+//向vector的末尾添加元素
+for(int i=1;i&lt;10;i++)
+        a.push_back(i);
+
+//输出首元素
+cout &lt;&lt; a.front()&lt;&lt;endl;
+
+//输出尾元素
+cout &lt;&lt; a.back()&lt;&lt;endl;
+
+//利用指针和begin函数和end函数进行遍历（迭代器）
+vector&lt;int&gt;::iterator it;
+for(it=a.begin();it!=a.end();it++)
+        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
+cout &lt;&lt;endl;
+
+//使用size函数进行遍历
+int len=a.size();
+for(int i=0;i&lt;len;i++)
+        cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;
+cout &lt;&lt;endl;
+
+//删除队尾元素
+a.pop_back();
+cout &lt;&lt; a.back()&lt;&lt;endl;
+
+//通过erase函数删除第二个元素
+it=a.begin()+1;
+
+a.erase(it);//删除的是2
+len=a.size();
+for(int i=0;i&lt;len;i++)
+        cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;
+cout &lt;&lt;endl;
+
+//通过erase函数删除前两个元素
+vector&lt;int&gt;::iterator it2;
+it=a.begin();
+it2=a.begin()+2;//删除的是1，3（注意这里不删除it2指向的那个位置）
+a.erase(it,it2);//就是说删除[it,it2)的部分
+len=a.size();
+for(int i=0;i&lt;len;i++)
+        cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;
+cout &lt;&lt;endl;
+
+//清空整个vector
+a.clear();
+
+//判断是否为空
+if(a.empty()) cout &lt;&lt; &quot;这个vector现在是空的了&quot; &lt;&lt;endl;
+
+//向指针指向的元素的前面插一个元素进去
+for(int i=1;i&lt;10;i++)
+        a.push_back(i);
+it=a.begin();
+a.insert(it,-1);//这样的插入是可以返回插入元素的指针的，而其他的插入方式就不行
+len=a.size();
+for(int i=0;i&lt;len;i++)
+        cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;
+cout &lt;&lt;endl;
+
+//向指针指向的元素的前面插4个相同的元素进去
+it=a.begin()+1;
+a.insert(it,4,100);
+len=a.size();
+for(int i=0;i&lt;len;i++)
+        cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;
+cout &lt;&lt;endl;
+
+//使用sort函数
+sort(a.begin(),a.end());
+
+//完整交换两个不同的vector
+vector&lt;int&gt; a2;
+for(int i=1;i&lt;10;i++)
+        a2.push_back(i);
+a.swap(a2);
+len=a.size();
+for(int i=0;i&lt;len;i++)
+        cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;
+cout &lt;&lt;endl;
+len=a2.size();
+for(int i=0;i&lt;len;i++)
+        cout &lt;&lt; a2[i] &lt;&lt; &quot; &quot;;
+cout &lt;&lt;endl;
+</code></pre>
 
                         
                       </div>
@@ -227,13 +343,13 @@
 	      
 		      
 			      <li class="post">
-			        <a href="16069140245534.html">这个呢，也试一下</a>
+			        <a href="16069176285542.html">Stack</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="16069133621284.html">have a try</a>
+			        <a href="16069171425177.html">Vector</a>
 			      </li>
 		     
 		   
